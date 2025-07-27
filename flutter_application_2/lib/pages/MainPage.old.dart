@@ -18,7 +18,9 @@ class MainPage extends StatelessWidget {
               shape: BoxShape.circle,
               color: Colors.white,
               image: DecorationImage(
-                  image: AssetImage('assets/cake.jpg'), fit: BoxFit.fill),
+                image: AssetImage('assets/cake.jpg'),
+                fit: BoxFit.fill,
+              ),
             ),
           ),
           ClipRRect(
@@ -33,7 +35,6 @@ class MainPage extends StatelessWidget {
               fit: BoxFit.fill,
             ),
           ),
-
         ],
       ),
     );
