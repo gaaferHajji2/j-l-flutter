@@ -7,6 +7,8 @@ class MyWidget extends StatelessWidget {
 
   final ProductModel product = Get.arguments;
 
+  final TextStyle textStyle = TextStyle(fontSize: 24.0, color: Colors.blueGrey);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,11 +18,11 @@ class MyWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text("Name: ${product.name}"),
+          Text("Name: ${product.name}", style: textStyle),
 
           SizedBox(height: 25.0),
 
-          Text("Price: \$${product.price}"),
+          Text("Price: \$${product.price}", style: textStyle),
         ],
       ),
     );
