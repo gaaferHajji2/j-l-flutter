@@ -10,7 +10,18 @@ class ProductView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Product List"), centerTitle: true),
+      appBar: AppBar(
+        title: Text("Product List"),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              Get.toNamed("/cart");
+            },
+            icon: Icon(Icons.shopping_cart),
+          ),
+        ],
+      ),
 
       body: Obx(() {
         return ListView.builder(

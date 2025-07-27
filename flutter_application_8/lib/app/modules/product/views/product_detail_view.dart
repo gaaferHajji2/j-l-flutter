@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_8/app/modules/product/controllers/cart_controller.dart';
 import 'package:flutter_application_8/app/modules/product/models/product.dart';
 import 'package:get/get.dart';
 
 class ProductDetailView extends StatelessWidget {
   ProductDetailView({super.key});
+
+  final CartController cartController = Get.find<CartController>();
 
   final ProductModel product = Get.arguments;
 
@@ -23,6 +26,17 @@ class ProductDetailView extends StatelessWidget {
             SizedBox(height: 25.0),
 
             Text("Price: \$${product.price}", style: textStyle),
+
+            ElevatedButton(
+              onPressed: () {
+                cartController.addtoCart(product);
+                Get.snackbar(
+                  "Add to cart",
+                  "${product.name} added to your cart",
+                );
+              },
+              child: Text("Add to cart"),
+            ),
           ],
         ),
       ),
