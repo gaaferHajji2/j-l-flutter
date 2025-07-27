@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_8/app/modules/product/models/product.dart';
 import 'package:get/get.dart';
 
-class MyWidget extends StatelessWidget {
-  MyWidget({super.key});
+class ProductDetailView extends StatelessWidget {
+  ProductDetailView({super.key});
 
   final ProductModel product = Get.arguments;
 
