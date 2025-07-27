@@ -14,16 +14,17 @@ class ProductDetailView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Product Detail"), centerTitle: true),
 
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Text("Name: ${product.name}", style: textStyle),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text("Name: ${product.name}", style: textStyle),
 
-          SizedBox(height: 25.0),
+            SizedBox(height: 25.0),
 
-          Text("Price: \$${product.price}", style: textStyle),
-        ],
+            Text("Price: \$${product.price}", style: textStyle),
+          ],
+        ),
       ),
     );
   }
