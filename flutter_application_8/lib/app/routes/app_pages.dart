@@ -6,7 +6,7 @@ part 'app_routes.dart';
 
 class AppPages {
   static final routes = [
-    GetPage(name: Routes.PRODUCt, page: () => ProductView()),
+    GetPage(name: Routes.PRODUCT, page: () => ProductView()),
     GetPage(name: Routes.PRODUCT_DETAIL, page: () => ProductDetailView()),
   ];
 }
