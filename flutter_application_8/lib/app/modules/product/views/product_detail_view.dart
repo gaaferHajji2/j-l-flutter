@@ -42,6 +42,38 @@ class ProductDetailView extends StatelessWidget {
               },
               child: Text("Add to cart"),
             ),
+
+            ElevatedButton(
+              onPressed: () {
+                Get.bottomSheet(
+                  Container(
+                    color: Colors.white,
+                    child: Wrap(
+                      children: <Widget>[
+                        ListTile(
+                          title: Text("Go to cart"),
+                          leading: Icon(Icons.shopping_cart),
+                          onTap: () {
+                            Get.back();
+                            Get.toNamed("/cart");
+                          },
+                        ),
+
+                        ListTile(
+                          title: Text("checkout"),
+                          leading: Icon(Icons.payment),
+                          onTap: () {
+                            Get.back();
+                            Get.toNamed("/checkout");
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+              child: Text("More Actions"),
+            ),
           ],
         ),
       ),
