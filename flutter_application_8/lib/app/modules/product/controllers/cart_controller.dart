@@ -18,4 +18,9 @@ class CartController extends GetxController {
   void calculateTotal() {
     totalAmount.value = cartItems.fold(0.0, (sum, item) => sum + item.price);
   }
+
+  void clearCart() {
+    cartItems.clear();
+    totalAmount.value = 0;
+  }
 }

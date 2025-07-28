@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_8/app/modules/product/controllers/cart_controller.dart';
 import 'package:get/get.dart';
 
 class CheckoutView extends StatelessWidget {
-  const CheckoutView({super.key});
+  CheckoutView({super.key});
+
+  final CartController cartController = Get.find<CartController>();
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +22,7 @@ class CheckoutView extends StatelessWidget {
 
             ElevatedButton(
               onPressed: () {
+                cartController.clearCart();
                 Get.offAllNamed("/product");
               },
               child: Text("Go to product"),
