@@ -6,4 +6,5 @@ class Routes {
   static const PRODUCT = "/product";
   static const PRODUCT_DETAIL = "/product-detailed";
   static const CART = "/cart";
+  static const CHECKOUT = "/checkout";
 }
