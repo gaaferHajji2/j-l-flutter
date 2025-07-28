@@ -11,6 +11,9 @@ class CartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("The Cart Controller is: ${cartController.cartItems}");
+    debugPrint("The Cart Controller is: ${cartController.totalAmount}");
+
     return Scaffold(
       appBar: AppBar(title: Text("Cart View"), centerTitle: true),
 

@@ -20,7 +20,7 @@ class AppPages {
       page: () => ProductDetailView(),
       binding: CartBinding(),
     ),
-    GetPage(name: Routes.CART, page: () => CartView(), binding: CartBinding()),
+    GetPage(name: Routes.CART, page: () => CartView()),
     GetPage(name: Routes.CHECKOUT, page: () => CheckoutView()),
   ];
 }
