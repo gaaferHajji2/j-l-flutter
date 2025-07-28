@@ -3,7 +3,7 @@ import 'package:flutter_application_8/app/modules/product/controllers/product_co
 import 'package:get/get.dart';
 
 class ProductView extends StatelessWidget {
-  final ProductController productController = Get.put(ProductController());
+  final ProductController productController = Get.find<ProductController>();
 
   ProductView({super.key});
 
