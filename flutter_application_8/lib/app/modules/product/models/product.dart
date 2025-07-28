@@ -11,7 +11,7 @@ class ProductModel {
     );
   }
 
-  Map<String, dynamic> toJson(ProductModel product) {
-    return {"name": product.name, "price": product.price.toString()};
+  Map<String, dynamic> toJson() {
+    return {"name": this.name, "price": this.price.toString()};
   }
 }
