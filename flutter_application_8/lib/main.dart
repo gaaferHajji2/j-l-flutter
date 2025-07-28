@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_8/app/modules/product/controllers/cart_controller.dart';
 import 'package:flutter_application_8/app/routes/app_pages.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main() async {
   Get.put(CartController());
+  await GetStorage.init();
   runApp(const MyApp());
 }
 

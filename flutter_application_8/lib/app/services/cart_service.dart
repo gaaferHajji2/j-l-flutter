@@ -40,6 +40,5 @@ class CartService extends GetxService {
 
   void clearCart() {
     cartItems.clear();
-    totalAmount.value = 0;
   }
 }
