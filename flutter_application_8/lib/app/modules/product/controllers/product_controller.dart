@@ -7,9 +7,9 @@ class ProductController extends GetxController {
   @override
   void onInit() {
     products.addAll([
-      ProductModel(name: "JLoka Product-01", price: 150.5),
-      ProductModel(name: "JLoka Product-02", price: 200.5),
-      ProductModel(name: "JLoka Product-02", price: 300.5),
+      ProductModel(title: "JLoka Product-01", price: 150.5),
+      ProductModel(title: "JLoka Product-02", price: 200.5),
+      ProductModel(title: "JLoka Product-02", price: 300.5),
     ]);
 
     super.onInit();

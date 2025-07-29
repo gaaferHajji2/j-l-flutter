@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_application_8/app/modules/product/controllers/cart_controller.dart';
 import 'package:flutter_application_8/app/routes/app_pages.dart';
 import 'package:get/get.dart';
@@ -26,14 +25,14 @@ class CartView extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   final cartItem = cartController.cartItems[index];
                   return ListTile(
-                    title: Text(cartItem.name),
+                    title: Text(cartItem.title),
                     subtitle: Text("\$${cartItem.price}"),
                     trailing: IconButton(
                       onPressed: () {
                         Get.defaultDialog(
                           title: "Remove Item",
                           middleText:
-                              "Are you sure to remove ${cartItem.name}?",
+                              "Are you sure to remove ${cartItem.title}?",
                           textConfirm: "Ok",
                           textCancel: "cancel",
                           confirmTextColor: Colors.white,

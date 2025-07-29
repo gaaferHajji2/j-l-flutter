@@ -21,7 +21,7 @@ class ProductDetailView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Name: ${product.name}", style: textStyle),
+            Text("Name: ${product.title}", style: textStyle),
 
             SizedBox(height: 25.0),
 
@@ -32,7 +32,7 @@ class ProductDetailView extends StatelessWidget {
                 cartController.addtoCart(product);
                 Get.snackbar(
                   "Add to cart",
-                  "${product.name} added to your cart",
+                  "${product.title} added to your cart",
                   snackPosition: SnackPosition.BOTTOM,
                   duration: Duration(milliseconds: 2000),
                   backgroundColor: Colors.blueGrey,

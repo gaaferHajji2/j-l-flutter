@@ -1,17 +1,17 @@
 class ProductModel {
-  final String name;
+  final String title;
   final double price;
 
-  ProductModel({required this.name, required this.price});
+  ProductModel({required this.title, required this.price});
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      name: json['name'] as String,
+      title: json['name'] as String,
       price: (json['price'] as num).toDouble(),
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {"name": this.name, "price": this.price.toString()};
+    return {"name": this.title, "price": this.price.toString()};
   }
 }
