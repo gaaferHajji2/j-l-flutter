@@ -8,3 +8,5 @@ web/
 **/web/
 **/linux/
 **/test/
+*.salive
+
