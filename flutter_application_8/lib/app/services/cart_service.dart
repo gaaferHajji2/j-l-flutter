@@ -7,6 +7,8 @@ class CartService extends GetxService {
 
   var cartItems = <ProductModel>[].obs;
 
+  var totalAmount = 0.0.obs;
+
   @override
   void onInit() {
     super.onInit();
@@ -26,19 +28,20 @@ class CartService extends GetxService {
 
   void addtoCart(ProductModel product) {
     cartItems.add(product);
-    // calculateTotal();
+    calculateTotal();
   }
 
   void removeFromCart(ProductModel product) {
     cartItems.remove(product);
-    // calculateTotal();
+    calculateTotal();
   }
 
-  // void calculateTotal() {
-  //   totalAmount.value = cartItems.fold(0.0, (sum, item) => sum + item.price);
-  // }
+  void calculateTotal() {
+    totalAmount.value = cartItems.fold(0.0, (sum, item) => sum + item.price);
+  }
 
   void clearCart() {
     cartItems.clear();
+    totalAmount.value = 0.0;
   }
 }
