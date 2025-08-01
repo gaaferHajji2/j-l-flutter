@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_8/app/modules/product/controllers/product_controller.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class ProductView extends StatelessWidget {
   final ProductController productController = Get.find<ProductController>();
@@ -24,10 +25,18 @@ class ProductView extends StatelessWidget {
       ),
 
       body: Obx(() {
+        if (productController.isLoading.value) {
+          return Center(child: CircularProgressIndicator());
+        }
+
+        if (productController.errMsg.isNotEmpty) {
+          return Center(child: Text(productController.errMsg.value));
+        }
+
         return ListView.builder(
-          itemCount: productController.products.length,
+          itemCount: productController.productsList.length,
           itemBuilder: (BuildContext context, int index) {
-            final product = productController.products[index];
+            final product = productController.productsList[index];
 
             return ListTile(
               title: Text(product.title),

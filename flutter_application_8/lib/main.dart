@@ -12,7 +12,7 @@ void main() async {
 
   Get.put(CartController());
 
-  print("After init all controllers and storage and service");
+  debugPrint("After init all controllers and storage and service");
 
   runApp(const MyApp());
 }

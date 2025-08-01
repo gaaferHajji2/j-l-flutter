@@ -6,7 +6,10 @@ import 'package:get/get.dart';
 class ProductBindings extends Bindings {
   @override
   void dependencies() {
-    Get.put(ProductController(productService: ProductService()));
-    Get.put(CartController());
+    Get.lazyPut(() => ProductService());
+
+    Get.lazyPut(
+      () => ProductController(productService: Get.find<ProductService>()),
+    );
   }
 }
