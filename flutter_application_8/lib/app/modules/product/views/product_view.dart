@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_8/app/modules/product/controllers/product_controller.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 class ProductView extends StatelessWidget {
   final ProductController productController = Get.find<ProductController>();

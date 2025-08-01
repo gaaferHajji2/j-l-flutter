@@ -6,8 +6,8 @@ class ProductModel {
 
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      title: json['name'] as String,
-      price: (num.parse(json['price']) as num).toDouble(),
+      title: json['title'] as String,
+      price: (json['price'] as num).toDouble(),
     );
   }
 
