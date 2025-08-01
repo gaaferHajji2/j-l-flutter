@@ -16,6 +16,8 @@ class ProductController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
+    fetchProducts();
   }
 
   void fetchProducts() async {
@@ -26,7 +28,6 @@ class ProductController extends GetxController {
       List<ProductModel> products = await productService.fetchProducts();
 
       productsList.assignAll(products);
-      isLoading(false);
     } catch (e) {
       errMsg("Failed to load data");
     } finally {
