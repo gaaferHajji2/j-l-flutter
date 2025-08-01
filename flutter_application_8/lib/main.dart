@@ -6,9 +6,13 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 void main() async {
-  Get.put(CartController());
   await GetStorage.init();
+
   Get.put(CartService());
+
+  Get.put(CartController());
+
+  print("After init all controllers and storage and service");
 
   runApp(const MyApp());
 }
