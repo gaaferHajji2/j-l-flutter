@@ -3,20 +3,34 @@ import 'package:flutter_application_8/app/services/product_service.dart';
 import 'package:get/get.dart';
 
 class ProductController extends GetxController {
-  var products = <ProductModel>[].obs;
+  var productsList = <ProductModel>[].obs;
 
   final ProductService productService;
+
+  var isLoading = true.obs;
+
+  var errMsg = ''.obs;
 
   ProductController({required this.productService});
 
   @override
   void onInit() {
-    products.addAll([
-      ProductModel(title: "JLoka Product-01", price: 150.5),
-      ProductModel(title: "JLoka Product-02", price: 200.5),
-      ProductModel(title: "JLoka Product-02", price: 300.5),
-    ]);
-
     super.onInit();
+  }
+
+  void fetchProducts() async {
+    try {
+      isLoading(true);
+      errMsg('');
+
+      List<ProductModel> products = await productService.fetchProducts();
+
+      productsList.assignAll(products);
+      isLoading(false);
+    } catch (e) {
+      errMsg("Failed to load data");
+    } finally {
+      isLoading(false);
+    }
   }
 }
