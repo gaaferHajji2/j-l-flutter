@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_8/app/modules/product/controllers/product_controller.dart';
+import 'package:flutter_application_8/app/services/theme_service.dart';
 import 'package:get/get.dart';
 
 class ProductView extends StatelessWidget {
@@ -30,6 +31,13 @@ class ProductView extends StatelessWidget {
               }
             },
             icon: Icon(Icons.language),
+          ),
+
+          IconButton(
+            onPressed: () {
+              ThemeService().switchTheme();
+            },
+            icon: Icon(Icons.brightness_7_sharp),
           ),
         ],
       ),

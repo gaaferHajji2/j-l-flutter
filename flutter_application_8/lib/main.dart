@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_8/app/modules/product/controllers/cart_controller.dart';
 import 'package:flutter_application_8/app/routes/app_pages.dart';
 import 'package:flutter_application_8/app/services/cart_service.dart';
+import 'package:flutter_application_8/app/services/theme_service.dart';
 import 'package:flutter_application_8/app/services/translation.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -30,7 +31,9 @@ class MyApp extends StatelessWidget {
       translations: AppTrans(),
       locale: Locale('en', 'US'),
       fallbackLocale: Locale('en', 'US'),
-
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeService().theme,
       getPages: [...AppPages.routes],
       debugShowCheckedModeBanner: false,
     );
