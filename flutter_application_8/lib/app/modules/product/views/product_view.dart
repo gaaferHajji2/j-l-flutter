@@ -11,7 +11,7 @@ class ProductView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Product List"),
+        title: Text("product_title".tr),
         centerTitle: true,
         actions: <Widget>[
           IconButton(
@@ -19,6 +19,17 @@ class ProductView extends StatelessWidget {
               Get.toNamed("/cart");
             },
             icon: Icon(Icons.shopping_cart),
+          ),
+
+          IconButton(
+            onPressed: () {
+              if (Get.locale == Locale('en', 'US')) {
+                Get.updateLocale(Locale('ar', 'JL'));
+              } else {
+                Get.updateLocale(Locale('en', 'US'));
+              }
+            },
+            icon: Icon(Icons.language),
           ),
         ],
       ),

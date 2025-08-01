@@ -14,7 +14,7 @@ class CartView extends StatelessWidget {
     debugPrint("The Cart Controller is: ${cartController.totalAmount}");
 
     return Scaffold(
-      appBar: AppBar(title: Text("Cart View"), centerTitle: true),
+      appBar: AppBar(title: Text("cart_title".tr), centerTitle: true),
 
       body: Column(
         children: <Widget>[

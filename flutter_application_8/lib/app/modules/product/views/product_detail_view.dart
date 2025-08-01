@@ -15,7 +15,7 @@ class ProductDetailView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Product Detail"), centerTitle: true),
+      appBar: AppBar(title: Text("product_detail_title".tr), centerTitle: true),
 
       body: Center(
         child: Column(

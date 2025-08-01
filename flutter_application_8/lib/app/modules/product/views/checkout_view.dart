@@ -10,7 +10,7 @@ class CheckoutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Checkout Page"), centerTitle: true),
+      appBar: AppBar(title: Text("checkout_title".tr), centerTitle: true),
 
       body: Center(
         child: Column(
