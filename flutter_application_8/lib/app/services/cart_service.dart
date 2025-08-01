@@ -11,7 +11,7 @@ class CartService extends GetxService {
   void onInit() {
     super.onInit();
 
-    List? storedCart = cartStorage.read("cartItems");
+    List? storedCart = cartStorage.read<List>("cartItems");
 
     if (storedCart != null) {
       cartItems.assignAll(

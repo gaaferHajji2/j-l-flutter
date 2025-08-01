@@ -10,12 +10,8 @@ class CartView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(
-      "The Cart Controller is: ${cartController.cartService.cartItems}",
-    );
-    debugPrint(
-      "The Cart Controller is: ${cartController.cartService.totalAmount}",
-    );
+    debugPrint("The Cart Controller is: ${cartController.cartItems}");
+    debugPrint("The Cart Controller is: ${cartController.totalAmount}");
 
     return Scaffold(
       appBar: AppBar(title: Text("Cart View"), centerTitle: true),
@@ -25,9 +21,9 @@ class CartView extends StatelessWidget {
           Expanded(
             child: Obx(() {
               return ListView.builder(
-                itemCount: cartController.cartService.cartItems.length,
+                itemCount: cartController.cartItems.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final cartItem = cartController.cartService.cartItems[index];
+                  final cartItem = cartController.cartItems[index];
                   return ListTile(
                     title: Text(cartItem.title),
                     subtitle: Text("\$${cartItem.price}"),
@@ -59,7 +55,7 @@ class CartView extends StatelessWidget {
             return Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
-                "Total: ${cartController.cartService.totalAmount.value.toStringAsFixed(2)}",
+                "Total: ${cartController.totalAmount.toStringAsFixed(2)}",
                 style: TextStyle(fontSize: 24.0, color: Colors.blueGrey),
               ),
             );
