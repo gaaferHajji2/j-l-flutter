@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_food_delivery_ui/data/data.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,6 +11,26 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Food Deleivery"),
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.account_circle, color: Colors.white),
+          iconSize: 24.0,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              'Cart (${currentUser.cart.length})',
+              style: TextStyle(color: Colors.white, fontSize: 18.0),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

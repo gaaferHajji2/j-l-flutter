@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Restaurants Food UI',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey[50],
-        primaryColor: Colors.deepOrangeAccent,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.deepOrangeAccent,
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 18.0),
+        ),
       ),
       home: const HomeScreen(),
     );
