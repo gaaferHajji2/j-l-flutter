@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:complaint_app/services/notification_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Initialize firebase
   await Firebase.initializeApp(
     options: FirebaseOptions(
       apiKey: "AIzaSyC19OHwq0BeMVKw5q3nft5liuzJtnzz6RI",
@@ -12,6 +14,9 @@ void main() async {
       projectId: "vendorslist-8abd3",
     ),
   );
+
+  // Initialize notification service
+  await NotificationService.initialize();
 
   runApp(const MyApp());
 }
