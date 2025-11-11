@@ -64,7 +64,7 @@ class NotificationService {
     FirebaseMessaging.onMessage.listen(_handleForegroundMessage);
 
     // Handle background messages
-    FirebaseMessaging.onBackgroundMessage(_handleBackgroundMessage);
+    FirebaseMessaging.onBackgroundMessage(handleBackgroundMessage);
   }
 
   static Future<void> _requestNotificationPermission() async {
@@ -82,7 +82,7 @@ class NotificationService {
     );
   }
 
-  static Future<void> _handleBackgroundMessage(RemoteMessage message) async {
+  static Future<void> handleBackgroundMessage(RemoteMessage message) async {
     debugPrint('Background message received: ${message.notification?.title}');
 
     // Show local notification when app is in background
