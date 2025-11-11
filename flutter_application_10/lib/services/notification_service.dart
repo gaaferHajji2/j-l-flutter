@@ -18,6 +18,7 @@ class NotificationService {
   );
 
   static Future<void> initialize() async {
+    debugPrint("Initialize notification service begin");
     // Request notification permission
     await _requestNotificationPermission();
 
