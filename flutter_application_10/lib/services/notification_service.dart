@@ -50,6 +50,7 @@ class NotificationService {
       onDidReceiveNotificationResponse: (NotificationResponse details) {
         // Handle notification tap
         debugPrint('Notification tapped: ${details.payload}');
+        _handleNotificationTap(details.payload);
       },
     );
 
@@ -60,11 +61,14 @@ class NotificationService {
     String? token = await messaging.getToken();
     debugPrint('FCM Token: $token');
 
+    // subscribe to all news for users
+    await messaging.subscribeToTopic("all_users_news");
+
     // Handle foreground messages
     FirebaseMessaging.onMessage.listen(_handleForegroundMessage);
 
     // Handle background messages
-    FirebaseMessaging.onBackgroundMessage(handleBackgroundMessage);
+    // FirebaseMessaging.onBackgroundMessage(handleBackgroundMessage);
   }
 
   static Future<void> _requestNotificationPermission() async {
@@ -153,5 +157,31 @@ class NotificationService {
   // Request notification permission
   static Future<PermissionStatus> requestNotificationPermission() async {
     return await Permission.notification.request();
+  }
+
+  static void _handleNotificationTap(String? payload) {
+    if (payload != null) {
+      try {
+        final data = jsonDecode(payload);
+        debugPrint('Notification tapped with data: $data');
+
+        // Handle different notification types
+        final notificationType = data['data']['type'] ?? 'default';
+        switch (notificationType) {
+          case 'chat':
+            // Navigate to chat screen
+            debugPrint('Navigate to chat');
+            break;
+          case 'alert':
+            // Handle alert notification
+            debugPrint('Handle alert notification');
+            break;
+          default:
+            debugPrint('Handle default notification');
+        }
+      } catch (e) {
+        debugPrint('Error parsing notification payload: $e');
+      }
+    }
   }
 }

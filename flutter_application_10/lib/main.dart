@@ -1,4 +1,6 @@
+import 'package:complaint_app/background_message_handler.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:complaint_app/services/notification_service.dart';
 
@@ -14,6 +16,9 @@ void main() async {
       projectId: "vendorslist-8abd3",
     ),
   );
+
+  // Register the background message handler BEFORE initializing notification service
+  FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
 
   // Initialize notification service
   await NotificationService.initialize();
