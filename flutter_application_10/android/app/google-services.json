@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "95532699305",
+    "project_id": "vendorslist-8abd3",
+    "storage_bucket": "vendorslist-8abd3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95532699305:android:1e9ff37061bf6953e2e3b8",
+        "android_client_info": {
+          "package_name": "com.gazal.complaint"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC19OHwq0BeMVKw5q3nft5liuzJtnzz6RI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95532699305:android:61c3e661e3dc96bce2e3b8",
+        "android_client_info": {
+          "package_name": "com.gazal.ulfah"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC19OHwq0BeMVKw5q3nft5liuzJtnzz6RI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95532699305:android:22e225ea1a7ae237e2e3b8",
+        "android_client_info": {
+          "package_name": "com.jloka.delivero"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC19OHwq0BeMVKw5q3nft5liuzJtnzz6RI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
