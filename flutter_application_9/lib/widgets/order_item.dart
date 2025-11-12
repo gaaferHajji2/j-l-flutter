@@ -10,7 +10,7 @@ class OrderItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 10.0),
+      margin: EdgeInsets.only(right: 15.0),
       width: 350.0,
       decoration: BoxDecoration(
         color: Colors.white,

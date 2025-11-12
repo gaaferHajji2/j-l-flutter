@@ -23,7 +23,7 @@ class OrdersList extends StatelessWidget {
           ),
 
           Container(
-            height: 150.0,
+            height: 125.0,
             child: ListView.builder(
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
