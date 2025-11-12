@@ -57,7 +57,7 @@ class OrderItem extends StatelessWidget {
                   Text(
                     order.restaurant.name,
                     style: TextStyle(
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w500,
                       fontSize: 15.0,
                     ),
                     overflow: TextOverflow.ellipsis,
@@ -69,7 +69,7 @@ class OrderItem extends StatelessWidget {
                   Text(
                     order.date,
                     style: TextStyle(
-                      fontWeight: FontWeight.w800,
+                      fontWeight: FontWeight.w500,
                       fontSize: 15.0,
                     ),
                     overflow: TextOverflow.ellipsis,
