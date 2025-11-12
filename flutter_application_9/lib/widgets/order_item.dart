@@ -37,44 +37,47 @@ class OrderItem extends StatelessWidget {
 
               SizedBox(width: 5.0),
 
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  // food name
-                  Text(
-                    order.food.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 15.0,
+              Container(
+                margin: EdgeInsets.only(left: 5.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    // food name
+                    Text(
+                      order.food.name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 15.0,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
 
-                  SizedBox(height: 5.0),
+                    SizedBox(height: 5.0),
 
-                  // restaurant name
-                  Text(
-                    order.restaurant.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15.0,
+                    // restaurant name
+                    Text(
+                      order.restaurant.name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15.0,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
 
-                  SizedBox(height: 5.0),
+                    SizedBox(height: 5.0),
 
-                  // order date
-                  Text(
-                    order.date,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15.0,
+                    // order date
+                    Text(
+                      order.date,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15.0,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
+                  ],
+                ),
               ),
             ],
           ),
