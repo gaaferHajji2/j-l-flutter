@@ -19,31 +19,11 @@ class _SignupPageState extends State<SignupPage> {
 
   void _signup() {
     if (_formKey.currentState!.validate()) {
-      // TODO: Call your API / Firebase / Auth service
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Sign-up successful! (Demo)')),
       );
       Navigator.pushReplacementNamed(context, '/login');
     }
-  }
-
-  String? _validateEmail(String? value) {
-    if (value == null || value.isEmpty) return 'Enter email';
-    if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-      return 'Invalid email';
-    }
-    return null;
-  }
-
-  String? _validatePassword(String? value) {
-    if (value == null || value.isEmpty) return 'Enter password';
-    if (value.length < 6) return 'Password too short';
-    return null;
-  }
-
-  String? _validateConfirm(String? value) {
-    if (value != _passCtrl.text) return 'Passwords do not match';
-    return null;
   }
 
   @override

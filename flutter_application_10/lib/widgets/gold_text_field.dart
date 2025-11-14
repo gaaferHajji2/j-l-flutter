@@ -1,4 +1,3 @@
-import 'package:complaint_app/utils/validate.dart';
 import 'package:flutter/material.dart';
 
 class GoldTextField extends StatelessWidget {
