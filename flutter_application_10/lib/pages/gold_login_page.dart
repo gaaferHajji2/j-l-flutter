@@ -35,7 +35,15 @@ class _LoginPageState extends State<LoginPage> {
         );
       }
       await FirebaseAuth.instance.signOut();
-    } else {}
+    } else {
+      if (mounted) {
+        showToast(
+          context: context,
+          title: "Email verified",
+          msg: "Your email has been verified",
+        );
+      }
+    }
   }
 
   @override
