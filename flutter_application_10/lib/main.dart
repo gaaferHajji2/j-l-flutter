@@ -1,4 +1,5 @@
 import 'package:complaint_app/background_message_handler.dart';
+import 'package:complaint_app/pages/gold_login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +37,12 @@ class MyApp extends StatelessWidget {
       title: 'Complaint App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.teal,
+        scaffoldBackgroundColor: const Color(0xFF0A3C3A), // dark teal
+        fontFamily: 'Roboto',
       ),
-      home: const MyHomePage(title: 'Complaint App'),
+      home: const LoginPage(),
+      routes: {'/signup': (_) => const SizedBox()},
     );
   }
 }
