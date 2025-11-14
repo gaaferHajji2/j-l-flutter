@@ -42,7 +42,10 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Roboto',
       ),
       home: const LoginPage(),
-      routes: {'/signup': (_) => const SizedBox()},
+      routes: {
+        '/signup': (_) => const SizedBox(),
+        '/login': (context) => const LoginPage(),
+      },
     );
   }
 }
