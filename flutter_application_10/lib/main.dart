@@ -1,5 +1,6 @@
 import 'package:complaint_app/background_message_handler.dart';
 import 'package:complaint_app/pages/gold_login_page.dart';
+import 'package:complaint_app/pages/gold_signup_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const LoginPage(),
       routes: {
-        '/signup': (_) => const SizedBox(),
+        '/signup': (_) => const SignupPage(),
         '/login': (context) => const LoginPage(),
       },
     );

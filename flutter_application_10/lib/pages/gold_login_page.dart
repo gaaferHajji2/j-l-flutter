@@ -1,3 +1,4 @@
+import 'package:complaint_app/utils/validate.dart';
 import 'package:complaint_app/widgets/gold_btn.dart';
 import 'package:complaint_app/widgets/gold_logo.dart';
 import 'package:complaint_app/widgets/gold_text_field.dart';
@@ -42,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               GoldTextField(
                 controller: _emailCtrl,
                 hint: 'Email',
+                validator: Validate.validateEmail,
                 keyboard: TextInputType.emailAddress,
               ),
               const SizedBox(height: 16),
@@ -50,6 +52,7 @@ class _LoginPageState extends State<LoginPage> {
               GoldTextField(
                 controller: _passCtrl,
                 hint: 'Password',
+                validator: Validate.validatePassword,
                 obscure: true,
               ),
               const SizedBox(height: 28),
