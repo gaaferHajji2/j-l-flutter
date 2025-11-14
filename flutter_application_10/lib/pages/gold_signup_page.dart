@@ -1,7 +1,10 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:complaint_app/utils/show_toast.dart';
 import 'package:complaint_app/utils/validate.dart';
 import 'package:complaint_app/widgets/gold_btn.dart';
 import 'package:complaint_app/widgets/gold_logo.dart';
 import 'package:complaint_app/widgets/gold_text_field.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatefulWidget {
@@ -17,12 +20,47 @@ class _SignupPageState extends State<SignupPage> {
   final _confirmCtrl = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
-  void _signup() {
+  void _signup() async {
     if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Sign-up successful! (Demo)')),
-      );
-      Navigator.pushReplacementNamed(context, '/login');
+      try {
+        // Register
+        final credential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+              email: _emailCtrl.text.trim(),
+              password: _passCtrl.text,
+            );
+
+        // Send verification email
+        await credential.user!.sendEmailVerification();
+
+        if (mounted) {
+          showToast(
+            context: context,
+            title: "",
+            msg: "Verification email sent! Please check your inbox.",
+          );
+          Navigator.pushReplacementNamed(context, '/login');
+        }
+      } on FirebaseAuthException catch (e) {
+        String message;
+        if (e.code == 'weak-password') {
+          message = 'Password should be at least 6 characters.';
+        } else if (e.code == 'email-already-in-use') {
+          message = 'An account already exists for that email.';
+        } else if (e.code == 'user-not-found' || e.code == 'wrong-password') {
+          message = 'Invalid email or password.';
+        } else {
+          message = e.message ?? 'An error occurred.';
+        }
+        if (mounted) {
+          showToast(
+            context: context,
+            title: 'Check Input Data',
+            msg: message,
+            type: ContentType.failure,
+          );
+        }
+      }
     }
   }
 

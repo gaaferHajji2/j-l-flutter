@@ -1,7 +1,10 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:complaint_app/utils/show_toast.dart';
 import 'package:complaint_app/utils/validate.dart';
 import 'package:complaint_app/widgets/gold_btn.dart';
 import 'package:complaint_app/widgets/gold_logo.dart';
 import 'package:complaint_app/widgets/gold_text_field.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,11 +17,25 @@ class _LoginPageState extends State<LoginPage> {
   final _emailCtrl = TextEditingController();
   final _passCtrl = TextEditingController();
 
-  void _login() {
-    // TODO: real authentication
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Login pressed – implement auth')),
+  void _login() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailCtrl.text.trim(),
+      password: _passCtrl.text,
     );
+
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null && !user.emailVerified) {
+      await user.sendEmailVerification();
+      if (mounted) {
+        showToast(
+          context: context,
+          title: "Verify your email first",
+          msg: "Please verify your email. Verification link sent.",
+          type: ContentType.warning,
+        );
+      }
+      await FirebaseAuth.instance.signOut();
+    } else {}
   }
 
   @override
