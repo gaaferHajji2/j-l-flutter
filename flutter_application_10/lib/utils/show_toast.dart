@@ -17,7 +17,7 @@ void showToast({
       message: msg,
 
       /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
-      contentType: ContentType.success,
+      contentType: type,
     ),
   );
 

@@ -18,30 +18,55 @@ class _LoginPageState extends State<LoginPage> {
   final _passCtrl = TextEditingController();
 
   void _login() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: _emailCtrl.text.trim(),
-      password: _passCtrl.text,
-    );
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailCtrl.text.trim(),
+        password: _passCtrl.text,
+      );
 
-    final user = FirebaseAuth.instance.currentUser;
-    if (user != null && !user.emailVerified) {
-      await user.sendEmailVerification();
-      if (mounted) {
-        showToast(
-          context: context,
-          title: "Verify your email first",
-          msg: "Please verify your email. Verification link sent.",
-          type: ContentType.warning,
-        );
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        user.reload();
       }
-      await FirebaseAuth.instance.signOut();
-    } else {
+      if (user != null && !user.emailVerified) {
+        await user.sendEmailVerification();
+        if (mounted) {
+          showToast(
+            context: context,
+            title: "Verify your email first",
+            msg: "Please verify your email. Verification link sent.",
+            type: ContentType.warning,
+          );
+        }
+        await FirebaseAuth.instance.signOut();
+      } else if (user != null && user.emailVerified) {
+        if (mounted) {
+          showToast(
+            context: context,
+            title: "Email verified",
+            msg: "Your email has been verified",
+          );
+        }
+      }
+    } on FirebaseAuthException catch (e) {
+      String msg = "";
+      if (e.code == 'invalid-credential') {
+        msg = "Please create account first";
+      } else {
+        msg = e.message == null ? 'Internal error' : e.message!;
+      }
+
+      debugPrint("The code is: ${e.code}");
+
       if (mounted) {
         showToast(
           context: context,
-          title: "Email verified",
-          msg: "Your email has been verified",
+          title: "Error",
+          msg: msg,
+          type: ContentType.failure,
         );
+
+        Navigator.of(context).pushReplacementNamed('/signup');
       }
     }
   }
