@@ -1,12 +1,4 @@
-windows/
-macos/
-linux/
 test/
-web/
 *.zip
-**/macos/
-**/web/
-**/linux/
-**/test/
 *.salive
 build/
