@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_shop/features/cart/domain/entities/cart_item.dart';
 import 'package:flutter_shop/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:flutter_shop/features/cart/presentation/bloc/cart_event.dart';
 import 'package:flutter_shop/features/cart/presentation/bloc/cart_state.dart';
@@ -67,16 +68,21 @@ class ProductDetailPage extends StatelessWidget {
                           const SizedBox(height: 24),
                           // OPTIMIZATION: Use BlocSelector so only button rebuilds on cart change
                           BlocSelector<CartBloc, CartState, bool>(
-                            selector: (cartState) => cartState.items.any(
-                              (item) => item.product.id == product.id,
-                            ),
+                            selector: (cartState) {
+                              if (cartState is CartLoaded) {
+                                return cartState.items.any(
+                                  (item) => item.product.id == product.id,
+                                );
+                              }
+                              return false;
+                            },
                             builder: (context, isInCart) {
                               return SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(
                                   onPressed: () {
                                     context.read<CartBloc>().add(
-                                      AddToCart(item),
+                                      AddToCart(CartItem(product: product)),
                                     );
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
