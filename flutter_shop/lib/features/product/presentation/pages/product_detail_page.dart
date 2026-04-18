@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_shop/features/cart/presentation/bloc/cart_bloc.dart';
+import 'package:flutter_shop/features/cart/presentation/bloc/cart_event.dart';
+import 'package:flutter_shop/features/cart/presentation/bloc/cart_state.dart';
 import 'package:flutter_shop/features/product/presentation/bloc/product_bloc.dart';
 import 'package:flutter_shop/core/di/injection.dart';
 import 'package:flutter_shop/features/product/presentation/bloc/product_event.dart';
@@ -73,7 +76,7 @@ class ProductDetailPage extends StatelessWidget {
                                 child: ElevatedButton(
                                   onPressed: () {
                                     context.read<CartBloc>().add(
-                                      AddToCart(product),
+                                      AddToCart(item),
                                     );
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
