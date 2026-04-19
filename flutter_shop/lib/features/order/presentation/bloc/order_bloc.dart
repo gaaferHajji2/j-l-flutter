@@ -3,6 +3,7 @@ import 'package:flutter_shop/features/order/domain/entities/order.dart';
 import 'package:flutter_shop/features/order/domain/repositories/order_repository.dart';
 import 'package:uuid/uuid.dart';
 import 'order_event.dart';
+import 'order_state.dart';
 
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
   final OrderRepository repository;
