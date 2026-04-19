@@ -5,6 +5,8 @@ import 'package:flutter_shop/features/cart/presentation/bloc/cart_bloc.dart';
 import 'package:flutter_shop/features/cart/presentation/bloc/cart_event.dart';
 import 'package:flutter_shop/features/cart/presentation/bloc/cart_state.dart';
 import 'package:flutter_shop/features/cart/presentation/widgets/cart_item_tile.dart';
+import 'package:flutter_shop/features/order/presentation/bloc/order_bloc.dart';
+import 'package:flutter_shop/features/order/presentation/bloc/order_event.dart';
 import 'package:go_router/go_router.dart';
 
 class CartPage extends StatelessWidget {
