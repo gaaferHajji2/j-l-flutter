@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_example/bloc/counter_bloc.dart';
 import 'package:flutter_bloc_example/cubit/counter_cubit.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -20,8 +21,9 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: .center,
           children: [
             const Text('You have pushed the button this many times:'),
-            BlocBuilder<CounterCubit, int>(
-              bloc: context.read<CounterCubit>(),
+            BlocBuilder<CounterBloc, int>(
+              // bloc: context.read<CounterCubit>(),
+              // bloc: context.read<CounterBloc>(),
               builder: (context, counter) {
                 return Text(
                   '$counter',
@@ -33,7 +35,7 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => context.read<CounterCubit>().increment(),
+        onPressed: () => context.read<CounterBloc>().add(CounterIncrement()),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
