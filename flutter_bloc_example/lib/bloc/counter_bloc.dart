@@ -15,6 +15,8 @@ class CounterBloc extends Bloc<CounterEvent, int> {
   }
 
   void increment(CounterIncrement event, Emitter<int> emit) {
+    // here we can't use emit of main class like cubit,
+    // because we have multiple events to listen to them
     emit(state + 1);
   }
 
