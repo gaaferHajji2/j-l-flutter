@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_example/add_todo_page.dart';
+import 'package:flutter_bloc_example/cubit/todo_cubit.dart';
 import 'package:flutter_bloc_example/todo_list.dart';
 
 void main() {
@@ -25,12 +27,15 @@ class MyApp extends StatelessWidget {
     //   ),
     // );
 
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      initialRoute: '/',
-      routes: {'/': (_) => TodoList(), '/add-todo': (_) => AddTodoPage()},
+    return BlocProvider(
+      create: (context) => TodoCubit(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
+        initialRoute: '/',
+        routes: {'/': (_) => TodoList(), '/add-todo': (_) => AddTodoPage()},
+      ),
     );
   }
 }
