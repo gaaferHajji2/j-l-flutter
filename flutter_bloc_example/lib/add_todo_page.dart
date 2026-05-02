@@ -29,6 +29,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
                 context.read<TodoCubit>().addTodo(
                   todoTitleController.text.trim(),
                 );
+                Navigator.of(context).pop();
               },
               child: const Text('Add'),
             ),
