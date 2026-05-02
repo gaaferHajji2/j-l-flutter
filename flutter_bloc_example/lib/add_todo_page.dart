@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_example/cubit/todo_cubit.dart';
 
 class AddTodoPage extends StatefulWidget {
   const AddTodoPage({super.key});
@@ -13,9 +15,7 @@ class _AddTodoPageState extends State<AddTodoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Add Todo'),
-      ),
+      appBar: AppBar(title: const Text('Add Todo')),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -25,7 +25,11 @@ class _AddTodoPageState extends State<AddTodoPage> {
             ),
             const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<TodoCubit>().addTodo(
+                  todoTitleController.text.trim(),
+                );
+              },
               child: const Text('Add'),
             ),
           ],
