@@ -6,7 +6,7 @@ class TodoCubit extends Cubit<List<Todo>> {
 
   void addTodo(String name) {
     final todo = Todo(name: name, createdAt: DateTime.now());
-    state.add(todo);
-    emit(state);
+    // [emit] does nothing if the [state] being emitted is equal to the current [state].
+    emit([...state, todo]);
   }
 }
