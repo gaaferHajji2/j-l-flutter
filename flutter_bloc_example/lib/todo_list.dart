@@ -14,7 +14,13 @@ class TodoList extends StatelessWidget {
         builder: (context, state) {
           return ListView.builder(
             itemCount: state.length,
-            itemBuilder: (BuildContext context, int index) {},
+            itemBuilder: (BuildContext context, int index) {
+              final item = state[index];
+              return ListTile(
+                title: Text(item.name),
+                trailing: Text(item.createdAt.toIso8601String()),
+              );
+            },
           );
         },
       ),
