@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_example/bloc/counter_bloc.dart';
 import 'package:flutter_bloc_example/bloc/counter_event.dart';
-import 'package:flutter_bloc_example/cubit/counter_cubit.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key, required this.title});
