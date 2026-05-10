@@ -1,0 +1,5 @@
+test/
+*.zip
+*.salive
+build/
+secrets.dart
