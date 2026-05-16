@@ -106,13 +106,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   ),
                   const SizedBox(height: 20),
                   const Text(
-                    'Hourly Forecast',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 8),
-
-                  const SizedBox(height: 20),
-                  const Text(
                     'Additional Information',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
