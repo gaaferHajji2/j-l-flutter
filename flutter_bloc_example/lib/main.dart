@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Note: We have also MultiRepositoryProvider
     return RepositoryProvider(
       create: (context) =>
           WeatherRepository(weatherDataProvider: WeatherDataProvider()),
