@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation_01/pages/alignment_animation_sample.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,11 +35,20 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [const Text('You have pushed the button this many times:')],
-        ),
+      body: ListView(
+        children: <Widget>[
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AlignmentAnimationSample(),
+                ),
+              );
+            },
+            child: Text("Alignment Animation"),
+          ),
+        ],
       ),
     );
   }
