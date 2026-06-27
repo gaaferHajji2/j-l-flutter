@@ -40,6 +40,16 @@ class _ContainerAnimationSampleState extends State<ContainerAnimationSample> {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.restore),
+        onPressed: () {
+          setState(() {
+            _width = 200;
+            _height = 200;
+            _backgroundColor = Colors.grey[400];
+          });
+        },
+      ),
     );
   }
 }
