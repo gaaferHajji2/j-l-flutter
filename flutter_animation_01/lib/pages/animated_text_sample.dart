@@ -13,11 +13,10 @@ class _AnimatedTextStyleSampleState extends State<AnimatedTextStyleSample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Animated Text Style Sample')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[Text("Jafar Loka Sample Data")],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[Text("Jafar Loka Sample Data")],
       ),
     );
   }
