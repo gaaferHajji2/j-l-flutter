@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_01/pages/alignment_animation_sample.dart';
+import 'package:flutter_animation_01/pages/container_animation_sample.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,6 +48,18 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             },
             child: Text("Alignment Animation"),
+          ),
+
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ContainerAnimationSample(),
+                ),
+              );
+            },
+            child: Text("Container Animation"),
           ),
         ],
       ),
