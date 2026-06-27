@@ -13,6 +13,7 @@ class _ContainerAnimationSampleState extends State<ContainerAnimationSample> {
   double _width = 200;
   double _height = 200;
   Color? _backgroundColor = Colors.grey[400];
+  double _radius = 25.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,16 +22,20 @@ class _ContainerAnimationSampleState extends State<ContainerAnimationSample> {
         child: GestureDetector(
           onTap: () {
             setState(() {
-              _width = 400;
-              _height = 400;
+              _width = 300;
+              _height = 300;
               _backgroundColor = Colors.orange[400];
+              _radius = 0.0;
             });
           },
           child: AnimatedContainer(
             width: _width,
             height: _height,
             duration: Duration(milliseconds: 500),
-            color: _backgroundColor,
+            decoration: BoxDecoration(
+              color: _backgroundColor,
+              borderRadius: BorderRadius.all(Radius.circular(_radius)),
+            ),
             child: Image.asset(
               "assets/jerry.png",
               width: 100,
@@ -47,6 +52,7 @@ class _ContainerAnimationSampleState extends State<ContainerAnimationSample> {
             _width = 200;
             _height = 200;
             _backgroundColor = Colors.grey[400];
+            _radius = 25.0;
           });
         },
       ),
