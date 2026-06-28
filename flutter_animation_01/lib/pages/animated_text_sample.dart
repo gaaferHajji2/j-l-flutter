@@ -22,6 +22,7 @@ class _AnimatedTextStyleSampleState extends State<AnimatedTextStyleSample> {
           AnimatedDefaultTextStyle(
             style: TextStyle(fontSize: fontSize, color: textColor),
             duration: Duration(milliseconds: 500),
+            curve: Curves.elasticInOut,
             child: Text("Jafar Loka Text"),
           ),
 
