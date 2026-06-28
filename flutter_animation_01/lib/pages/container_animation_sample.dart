@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 class ContainerAnimationSample extends StatefulWidget {
   const ContainerAnimationSample({super.key});
