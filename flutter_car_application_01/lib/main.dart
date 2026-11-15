@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_car_application_01/firebase_options.dart';
@@ -37,6 +38,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  FirebaseFirestore db = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +53,18 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: .center,
           children: [],
         ),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+          const user = {
+            "firstname": "Jafar",
+            "lastname": "Loka",
+            "age": 26
+          };
+
+          db.collection("users").add(user).then((DocumentReference doc) => debugPrint("User added with ID: ${doc.id}"));
+        }
       ),
     );
   }
